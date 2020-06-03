@@ -19,8 +19,8 @@
         "gigablah/sphinxphp": "2.0.8"
     },
     "autoload": {
-        "psr-0": {
-            "ioola\\SphinxSearch": "src/"
+        "psr-4": {
+            "ioola\\SphinxSearch\\": "src/"
         }
     }
 }
