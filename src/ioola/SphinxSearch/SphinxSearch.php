@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace sngrl\SphinxSearch;
 
 class SphinxSearch
@@ -14,18 +14,18 @@ class SphinxSearch
 
     public function __construct()
     {
-        $host = \Config::get('sphinxsearch.host');
-        $port = \Config::get('sphinxsearch.port');
-        $timeout = \Config::get('sphinxsearch.timeout');
+        $host = config('sphinxsearch.host');
+        $port = config('sphinxsearch.port');
+        $timeout = config('sphinxsearch.timeout');
         $this->_connection = new \Sphinx\SphinxClient();
         $this->_connection->setServer($host, $port);
         $this->_connection->setConnectTimeout($timeout);
         $this->_connection->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_ANY);
         $this->_connection->setSortMode(\Sphinx\SphinxClient::SPH_SORT_RELEVANCE);
-        if (extension_loaded('mysqli') && \Config::get('sphinxsearch.mysql_server')) {
-            $this->_raw_mysql_connection = mysqli_connect(\Config::get('sphinxsearch.mysql_server.host'), '', '', '', \Config::get('sphinxsearch.mysql_server.port'));
+        if (extension_loaded('mysqli') && config('sphinxsearch.mysql_server')) {
+            $this->_raw_mysql_connection = mysqli_connect(config('sphinxsearch.mysql_server.host'), '', '', '', config('sphinxsearch.mysql_server.port'));
         }
-        $this->_config = \Config::get('sphinxsearch.indexes');
+        $this->_config = config('sphinxsearch.indexes');
         reset($this->_config);
         $this->_index_name = isset($this->_config['name']) ? implode(',', $this->_config['name']) : key($this->_config);
         $this->_eager_loads = array();
@@ -208,9 +208,9 @@ class SphinxSearch
                 $config = isset($this->_config['mapping']) ? $this->_config['mapping']
                     : $this->_config[$this->_index_name];
 
-		// Get the model primary key column name    
+		// Get the model primary key column name
 		$primaryKey = isset($config['primaryKey']) ? $config['primaryKey'] : 'id';
-		    
+
                 if ($config) {
                     if (isset($config['repository'])) {
                         $result = call_user_func_array($config['repository'] . '::findInRange',

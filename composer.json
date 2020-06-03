@@ -1,28 +1,26 @@
 {
-  "name": "ioola/sphinxsearch",
-  "description": "Laravel package to query Sphinxsearch in Laravel 7",
-  "keywords": [
-    "sphinx",
-    "sphinxsearch",
-    "laravel",
-    "laravel 7"
-  ],
-  "homepage": "http://github.com/ioola/sphinxsearch",
-  "license": "Apache-2.0",
-  "authors": [
-    {
-      "name": "casper",
-      "email": "kasptu@gmail.com"
+    "name": "ioola/sphinxsearch",
+    "description": "Laravel package to query Sphinxsearch in Laravel 7",
+    "keywords": [
+        "sphinx",
+        "sphinxsearch",
+        "laravel",
+        "laravel 7"
+    ],
+    "homepage": "http://github.com/ioola/sphinxsearch",
+    "license": "Apache-2.0",
+    "authors": [{
+        "name": "casper",
+        "email": "kasptu@gmail.com"
+    }],
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/support": "7.14.1",
+        "gigablah/sphinxphp": "2.0.8"
+    },
+    "autoload": {
+        "psr-0": {
+            "ioola\\SphinxSearch": "src/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.3.0",
-    "illuminate/support": "7.14.1",
-    "gigablah/sphinxphp": "2.0.8"
-  },
-  "autoload": {
-    "psr-0": {
-      "sngrl\\SphinxSearch": "src/"
-    }
-  }
 }
