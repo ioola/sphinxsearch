@@ -1,5 +1,5 @@
-<?php 
-namespace sngrl\SphinxSearch;
+<?php
+namespace ioola\SphinxSearch;
 
 use Illuminate\Support\ServiceProvider;
 
